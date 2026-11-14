@@ -1,0 +1,502 @@
+<!DOCTYPE html> <htm
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Association des Élèves - LTP Bopa</title>
+<style>
+/* =========================
+   COULEURS GENERALES
+========================= */
+:root {
+    --vert: #123B46;
+    --vert-clair: #185563;
+    --or: #E8B968;
+    --blanc: #FFFFFF;
+    --fond: #F7F5EF;
+    --texte: #526078;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    background: var(--blanc);
+    color: var(--vert);
+}
+/* =========================
+   MENU DE NAVIGATION
+========================= */
+header {
+    background: var(--vert);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+    color: white;
+}
+.logo span {
+    color: var(--or);
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+.nav-links a:hover {
+    color: var(--or);
+}
+/* =========================
+   ACCUEIL
+========================= */
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 70px 8%;
+    color: white;
+    background: var(--vert);
+}
+.hero-content {
+    max-width: 55%;
+}
+.subtitle {
+    color: var(--or);
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+.hero h1 {
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+.hero h1 span {
+    color: var(--or);
+}
+.hero-content > p:not(.subtitle) {
+    color: white;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+/* IMAGE ACCUEIL */
+.hero-image {
+    width: 42%;
+}
+.hero-image img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 4px solid var(--or);
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+}
+/* =========================
+   BOUTONS
+========================= */
+.btn {
+    display: inline-block;
+    background: var(--or);
+    color: var(--vert);
+    padding: 15px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+.btn:hover {
+    background: white;
+    transform: translateY(-4px);
+}
+/* =========================
+   SECTIONS GENERALES
+========================= */
+.section {
+    padding: 90px 8%;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+.section-title p {
+    color: #B58B38;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+.section-title h2 {
+    font-size: 36px;
+}
+.line {
+    width: 65px;
+    height: 4px;
+    background: var(--or);
+    margin: 18px auto;
+    border-radius: 5px;
+}
+/* =========================
+   PRESENTATION
+========================= */
+.presentation {
+    background: var(--fond);
+}
+.presentation-content {
+    max-width: 850px;
+    margin: auto;
+}
+.presentation-text h3 {
+    font-size: 27px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+.presentation-text p {
+    color: var(--texte);
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+/* =========================
+   PRESIDENTE
+========================= */
+.presidente {
+    background: white;
+}
+.presidente-card {
+    max-width: 850px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background: var(--fond);
+    border-radius: 14px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.08);
+}
+.presidente-info {
+    max-width: 650px;
+}
+.role {
+    color: #B58B38;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.presidente-info h3 {
+    font-size: 28px;
+    margin: 15px 0;
+}
+.presidente-info p {
+    color: var(--texte);
+    line-height: 1.8;
+}
+.motto {
+    margin-top: 20px;
+    font-style: italic;
+    color: var(--vert-clair) !important;
+}
+/* =========================
+   ACTIVITES
+========================= */
+.activities-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.activity-card {
+    background: var(--fond);
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 12px;
+    transition: .3s;
+    border-bottom: 4px solid transparent;
+}
+.activity-card:hover {
+    transform: translateY(-8px);
+    border-bottom-color: var(--or);
+    box-shadow: 0 12px 25px rgba(0,0,0,.08);
+}
+.activity-icon {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+.activity-card h3 {
+    margin-bottom: 15px;
+    font-size: 21px;
+}
+.activity-card p {
+    color: var(--texte);
+    line-height: 1.8;
+}
+/* =========================
+   REJOINDRE ASSOCIATION
+========================= */
+.join {
+    padding: 80px 8%;
+    text-align: center;
+    color: white;
+    background: var(--vert);
+}
+.join h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+.join p {
+    color: #DCE4EF;
+    margin-bottom: 30px;
+}
+/* =========================
+   PIED DE PAGE
+========================= */
+footer {
+    background: #0A1426;
+    color: white;
+    text-align: center;
+    padding: 55px 8% 20px;
+}
+.footer-content h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.footer-content span {
+    color: var(--or);
+}
+.footer-content p {
+    color: #C4CEDD;
+    line-height: 1.8;
+}
+.footer-motto {
+    color: var(--or) !important;
+    margin-top: 10px;
+    font-style: italic;
+}
+.copyright {
+    border-top: 1px solid #29354A;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 12px;
+    color: #AAB5C6;
+}
+/* =========================
+   ADAPTATION TELEPHONE
+========================= */
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 7%;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero-image {
+        width: 100%;
+    }
+    .hero-image img {
+        height: 260px;
+    }
+    .section {
+        padding: 65px 7%;
+    }
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+    .presidente-card {
+        padding: 25px;
+    }
+    .join h2 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- MENU -->
+<header>
+<nav class="navbar">
+    <div class="logo">
+        LTP <span>BOPA</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#presidente">Présidente</a></li>
+        <li><a href="#activites">Activités</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+</header>
+<!-- ACCUEIL AVEC IMAGE A DROITE -->
+<section class="hero" id="accueil">
+    <div class="hero-content">
+        <p class="subtitle">
+            LYCÉE TECHNIQUE ET PROFESSIONNEL DE BOPA
+        </p>
+        <h1>
+            Ensemble pour un
+            <span>avenir meilleur</span>
+        </h1>
+        <p>
+            Bienvenue sur le site officiel de l'Association
+            des Élèves du LTP Bopa.
+        </p>
+        <a href="#presentation" class="btn">
+            Découvrir notre association
+        </a>
+    </div>
+    <div class="hero-image">
+        <img src="b3f29dcdcda3b7bdbc2ea69ac01cfef2 (1).jpg"
+        alt="Les élèves du LTP Bopa">
+    </div>
+</section>
+<!-- PRESENTATION -->
+<section class="presentation section" id="presentation">
+    <div class="section-title">
+        <p>QUI SOMMES-NOUS ?</p>
+        <h2>Notre association</h2>
+        <div class="line"></div>
+    </div>
+    <div class="presentation-content">
+        <div class="presentation-text">
+            <h3>
+                Unis pour apprendre, grandir et réussir ensemble.
+            </h3>
+            <p>
+                L'Association des Élèves du Lycée Technique et
+                Professionnel de Bopa est un espace de rencontre,
+                de partage et de collaboration entre les élèves.
+            </p>
+            <p>
+                Elle encourage la solidarité, l'entraide,
+                la participation et le développement des talents
+                de chaque apprenant.
+            </p>
+            <p>
+                Notre ambition est de construire une communauté
+                scolaire dynamique et unie.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- PRESIDENTE -->
+<section class="presidente section" id="presidente">
+    <div class="section-title">
+        <p>NOTRE RESPONSABLE</p>
+        <h2>La Présidente</h2>
+        <div class="line"></div>
+    </div>
+    <div class="presidente-card">
+        <div class="presidente-info">
+            <span class="role">
+                PRÉSIDENTE DE L'ASSOCIATION
+            </span>
+            <h3>Nom de la Présidente</h3>
+            <p>
+                La présidente représente l'association,
+                encourage la participation des élèves et
+                contribue à la réalisation de ses objectifs.
+            </p>
+            <p class="motto">
+                « Unis pour apprendre, grandir et réussir ensemble. »
+            </p>
+        </div>
+    </div>
+</section>
+<!-- ACTIVITES -->
+<section class="activites section" id="activites">
+    <div class="section-title">
+        <p>NOS ENGAGEMENTS</p>
+        <h2>Nos activités</h2>
+        <div class="line"></div>
+    </div>
+    <div class="activities-grid">
+        <div class="activity-card">
+            <div class="activity-icon">🤝</div>
+            <h3>Solidarité</h3>
+            <p>
+                Encourager l'entraide et l'esprit de solidarité
+                entre les élèves.
+            </p>
+        </div>
+        <div class="activity-card">
+            <div class="activity-icon">📚</div>
+            <h3>Éducation</h3>
+            <p>
+                Favoriser le partage des connaissances
+                et la réussite scolaire.
+            </p>
+        </div>
+        <div class="activity-card">
+            <div class="activity-icon">🎯</div>
+            <h3>Initiatives</h3>
+            <p>
+                Organiser des projets et des activités
+                pour développer les talents.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- REJOINDRE L'ASSOCIATION -->
+<section class="join">
+    <h2>Ensemble, faisons la différence !</h2>
+    <p>
+        Chaque élève a une place et un rôle à jouer
+        dans notre association.
+    </p>
+    <a href="#contact" class="btn">
+        Nous contacter
+    </a>
+</section>
+<!-- PIED DE PAGE -->
+<footer id="contact">
+    <div class="footer-content">
+        <h2>LTP <span>BOPA</span></h2>
+        <p>
+            Association des Élèves du Lycée Technique
+            et Professionnel de Bopa.
+        </p>
+        <p class="footer-motto">
+            Unis pour apprendre, grandir et réussir ensemble.
+        </p>
+    </div>
+    <div class="copyright">
+        © 2026 Association des Élèves du LTP Bopa.
+        Tous droits réservés.
+    </div>
+</footer>
+</body>
+</html>
